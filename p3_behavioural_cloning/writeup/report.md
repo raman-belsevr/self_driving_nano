@@ -28,7 +28,8 @@ The goals / steps of this project are the following:
 Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ## Pre-Requisites for Model Evalaution
-**keras 2.0.5**
+The model was built using **keras 2.0.5**. The environment.yml file
+has been included in the submission. 
 
 
 ---
@@ -41,10 +42,20 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
+* report.md and report.pdf summarizing the results
+* environment.yml for replicating the environment used to build and evaluate the model. 
 
 ####2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
+
+1) Setting up environment using the environment file provided in the submission.
+
+```sh
+conda env create -n <env_upgraded_keras> --file <environment.yml>"
+```
+
+2) Using the model to drive the vehicle
+
 ```sh
 python3 drive.py model.h5
 ```
@@ -57,9 +68,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-The model consists of a convolution neural network with 5 layers of convolution followed by 3 fully connected layers. 
-
-The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer.
+The model consists of a convolution neural network with 5 layers of convolution followed by 3 fully connected layers. The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer.
 
 
 ####2. Attempts to reduce overfitting in the model
@@ -74,10 +83,10 @@ The model used an adam optimizer, so the learning rate was not tuned manually.
 
 ####4. Appropriate training data
 
-Use of keyboard for driving the vehicle introduced a significant amount of jerking with steering angles singing drastically during turns. This led to noisy data where the vehicle would still have zero steering angle during some instances in middle of a turn. Ideal driving behaviour is much different with no jerks to the steering angle and smooth constant steering. To allow for such navigation, mouse was used. 
+Use of keyboard for driving the vehicle introduced a significant amount of jerking with steering angles singing drastically during turns. This led to noisy data where the vehicle would still have zero steering angle during some instances in middle of a turn. Ideal driving behaviour is much different with no jerks to the steering angle and smooth constant steering. To allow for such navigation, **mouse** was used. 
 
 As the lake-side track has the vehicle driving more towards the left, the data collected from regular driving is skewed towards left turns. 
-The input dataset (driving log and images) wasaugmented artificially to reduce data skewness.
+The input dataset (driving log and images) was augmented artificially to reduce data skewness.
 
 In order to generalize, data was augmented using the following methods.
 
@@ -125,7 +134,7 @@ In this section, additional details on the methods adopted to augment data are p
 * Driving the vehicle in the **reverse** direction
   The vehicle was turned around and complete 5 laps on the track to 
   create additional data that is biased towards a right turn. This 
-  woudl allow to compensate for the left-turn bias in the original 
+  would allow to compensate for the left-turn bias in the original 
   track.
   
 * **Recovery** sequences
@@ -148,7 +157,7 @@ In this section, additional details on the methods adopted to augment data are p
 
 In order to train the vehicle to navigate smoothly through sharp turns, the following methods were applied
 
-* Use of left and right camera images with **adjustment** (0.325) to the steering angle. This was the a critical adjustment as the vehicle 
+* Use of **left** and **right** camera images with **adjustment** (0.325) to the steering angle. This was the a critical adjustment as the vehicle 
   was not unable to turn sharply and would abruptly stop turning and 
   choosing to drive straight. The vehicle needed much powerful 
   steering and the ability to recover if it is tending to go straight 
@@ -175,6 +184,6 @@ The figures below capture the effect of artificial augmentation of samples. The 
 
 
 The final augmented set data had 75k images, that was split into test and validation samples (validation_split = 0.05, or 5 % of dataset).
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by the validation loss increasing after 3 epochs. Adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by the validation loss increasing after 3 epochs. Use of Adam optimizer avoided manual training of the learning rate.
 
 ![Model Training][training]
