@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ## Pre-Requisites for Model Evalaution
-The model was built using **keras 2.0.5**. 
+**keras 2.0.5**
 
 
 ---
