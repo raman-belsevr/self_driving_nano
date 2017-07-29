@@ -19,12 +19,40 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[distorted]: ./report_images/distorted.png "distorted"
+[undistorted]: ./report_images/undistorted.png "undistorted"
+
+[pipeline1]: ./report_images/pipeline_example_1.png "p1"
+[pipeline2]: ./report_images/pipeline_example_2.png "p2"
+[pipeline3]: ./report_images/pipeline_example_3.png "p3"
+[pipeline4]: ./report_images/pipeline_example_4.png "p4"
+[pipeline5]: ./report_images/pipeline_example_5.png "p5"
+[pipeline6]: ./report_images/pipeline_example_6.png "p6"
+[pipeline7]: ./report_images/pipeline_example_7.png "p7"
+[pipeline8]: ./report_images/pipeline_example_8.png "p8"
+[pipeline9]: ./report_images/pipeline_example_9.png "p9"
+
+[polyfit1]: ./report_images/polyfit_1.png "py1"
+[polyfit2]: ./report_images/polyfit_2.png "py2"
+[polyfit3]: ./report_images/polyfit_3.png "py3"
+[polyfit4]: ./report_images/polyfit_4.png "py4"
+[polyfit5]: ./report_images/polyfit_5.png "py5"
+[polyfit6]: ./report_images/polyfit_6.png "py6"
+[polyfit7]: ./report_images/polyfit_7.png "py7"
+[polyfit8]: ./report_images/polyfit_8.png "py8"
+[polyfit9]: ./report_images/polyfit_9.png "py9"
+
+[lane_project1]: ./report_images/color_proj_1.png "lp1"
+[lane_project2]: ./report_images/color_proj_2.png "lp2"
+[lane_project3]: ./report_images/color_proj_3.png "lp3"
+[lane_project4]: ./report_images/color_proj_4.png "lp4"
+[lane_project5]: ./report_images/color_proj_5.png "lp5"
+[lane_project6]: ./report_images/color_proj_6.png "lp6"
+[lane_project7]: ./report_images/color_proj_7.png "lp7"
+[lane_project8]: ./report_images/color_proj_8.png "lp8"
+[lane_project9]: ./report_images/color_proj_9.png "lp9"
+
+
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -49,14 +77,15 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![alt text][image1]
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+
+![alt text][Distorted]
+![alt text][Undistorted]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -92,13 +121,30 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+![alt text][pipeline1]
+![alt text][pipeline2]
+![alt text][pipeline3]
+![alt text][pipeline4]
+![alt text][pipeline5]
+![alt text][pipeline6]
+![alt text][pipeline7]
+![alt text][pipeline8]
+![alt text][pipeline9]
+
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
-![alt text][image5]
+![alt text][polyfit1]
+![alt text][polyfit2]
+![alt text][polyfit3]
+![alt text][polyfit4]
+![alt text][polyfit5]
+![alt text][polyfit6]
+![alt text][polyfit7]
+![alt text][polyfit8]
+![alt text][polyfit9]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -108,9 +154,16 @@ I did this in lines # through # in my code in `my_other_file.py`
 
 I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][lane_project1]
+![alt text][lane_project2]
+![alt text][lane_project3]
+![alt text][lane_project4]
+![alt text][lane_project5]
+![alt text][lane_project6]
+![alt text][lane_project7]
+![alt text][lane_project8]
+![alt text][lane_project8]
 
----
 
 ### Pipeline (video)
 
