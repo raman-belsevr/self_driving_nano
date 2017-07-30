@@ -171,9 +171,9 @@ I implemented the pipeline in **lines 469 through 509** in my code in `Advanced_
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!). 
 
-Here's a [link to my video result](./project_output_colour_with_info.mp4)
+Here's a [link to my video result](./project_output_video.mp4)
 
 ---
 
